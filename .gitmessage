@@ -1,0 +1,11 @@
+
+
+# <type>(<optional scope>): <description>
+#
+# Types: feat, fix, refactor, test, docs, chore, build, ci
+# Scope: the affected part, e.g. s7, mqtt, buffer, gateway
+# Add "!" before ":" for a breaking change, e.g. "refactor!: ..."
+#
+# Leave a blank line after the subject, then explain why the change is needed.
+#
+# Example: feat(s7): read multiple PLCs in parallel
