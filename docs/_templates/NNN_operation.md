@@ -89,6 +89,15 @@ flowchart LR
     DbRepository -. implementa .-> Repository
 ```
 
+## Mudanças no que já existe
+
+<!-- Uma linha por membro já existente que a operação altera, cria ou remove. Remova a seção na primeira operação do contexto. -->
+
+| Onde | Membro | Mudança |
+| --- | --- | --- |
+| `UserRepository` | `existsByEmail(email)` | Novo: unicidade do e-mail |
+| `UserEntity` | `toDomain()` | Novo: reconstrói o `User` vindo do banco |
+
 ## Domínio
 
 ### User
