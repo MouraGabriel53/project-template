@@ -1,7 +1,7 @@
 <!--
 Title in Conventional Commits format: <type>(<scope>): <description>
 Types: feat, fix, refactor, test, docs, chore, build, ci
-Examples: "feat(s7): read multiple PLCs in parallel", "fix: drop expired readings on backfill"
+Examples: "feat(order): cancel unpaid orders after 24 hours", "fix(api): return 404 for unknown ids"
 The PR title check fails if the title does not follow this format.
 -->
 
@@ -9,14 +9,14 @@ The PR title check fails if the title does not follow this format.
 <!-- Summary in 1-3 sentences. -->
 
 ## Why
-<!-- Problem or motivation. Link the issue, if any. -->
+<!-- Problem or motivation. Link the issue and the spec, if any. -->
 
 ## How to test
-<!-- Steps to validate locally (e.g. --source s7 --sink mqtt). -->
+<!-- Steps to validate locally: commands to run, requests to send, data needed. -->
 
 ## Checklist
-- [ ] `./mvnw verify` passes locally
-- [ ] Layer dependencies respected (ArchitectureTest)
+- [ ] Full test command passes locally (see docs/development.md)
+- [ ] Layer dependencies respected (architecture test)
 - [ ] No new or upgraded dependency without approval
-- [ ] README and example configs updated, if needed
-- [ ] Documentation created or updated (docs/, decisions, specs)
+- [ ] README "Configure" table and `.env.example` updated, if variables changed
+- [ ] Documentation created or updated (spec, architecture, api, decisions)

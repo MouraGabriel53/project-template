@@ -3,9 +3,9 @@
 # <type>(<optional scope>): <description>
 #
 # Types: feat, fix, refactor, test, docs, chore, build, ci
-# Scope: the affected part, e.g. s7, mqtt, buffer, gateway
+# Scope: the affected context or area, e.g. order, payment, api, db
 # Add "!" before ":" for a breaking change, e.g. "refactor!: ..."
 #
 # Leave a blank line after the subject, then explain why the change is needed.
 #
-# Example: feat(s7): read multiple PLCs in parallel
+# Example: feat(order): cancel orders that were not paid in 24 hours

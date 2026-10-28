@@ -1,42 +1,71 @@
-# project-template
+# <Project name>
 
-Shared conventions for new projects: Conventional Commits checked locally and
-in CI, a pull request template, and a `docs/` structure for architecture,
-contracts, specs and decisions.
+**<Tagline: the promise of the project in one short line.>**
 
-Stack-specific setup (build, CI, architecture test, dependency updates) is
-added on top of this template by the `project-setup` Claude Code skill.
+<What it is and the problem it solves, in one or two sentences.> Built for
+<who uses it>, so they can <the goal they reach with it>.
 
-## What is included
+## Getting started
 
-| Path | Purpose |
-| --- | --- |
-| `.githooks/commit-msg` | Rejects commits that do not follow Conventional Commits. Also used by CI to check PR titles and commits |
-| `.gitmessage` | Commit message template opened by `git commit` |
-| `.github/pull_request_template.md` | Default pull request description |
-| `.github/workflows/check-conventions.yml` | Reusable workflow: checks the PR title and every commit of the PR |
-| `.github/workflows/conventions.yml` | Calls the reusable workflow on pull requests |
-| `.github/dependabot.yml` | Weekly updates for GitHub Actions; add the stack's ecosystem |
-| `docs/` | `architecture.md`, `contracts.md`, `development.md`, `specs/`, `decisions/` |
-| `CLAUDE.md` | Project-specific instructions for Claude Code |
+### 1. Prerequisites
 
-## New project
+<!-- One line per tool, with the minimum version and the command that checks it. -->
+
+- <Tool> <version>: check with `<tool> --version`
+
+### 2. Get the code
 
 ```bash
-gh repo create <name> --private --template MouraGabriel53/project-template --clone
-cd <name>
-git config core.hooksPath .githooks
-git config commit.template .gitmessage
+git clone https://github.com/MouraGabriel53/<repo>.git
+cd <repo>
 ```
 
-Then fill in `README.md`, `CLAUDE.md` and `docs/`, or ask Claude Code to run
-the `project-setup` skill for the stack.
+### 3. Configure
 
-## Existing project
+```bash
+cp .env.example .env
+```
 
-Copy `.github/workflows/conventions.yml` into the project to get the checks.
-The rules come from this repository's `main` branch, so changing the allowed
-types here changes them for every project that calls the workflow.
+Then fill in `.env`:
 
-The local hook (`.githooks/commit-msg`) is a copy; update it in each project
-when the rules change.
+<!--
+One row per variable in .env.example, in the same order.
+- Required: "yes" if the app does not start without it.
+- Secret: "yes" if the value must never be committed or shared.
+- How to get it: one of
+    "Default works locally"
+    "Generate: `<command>`"
+    "<Service> → <menu> → <page>"
+If the project reads no configuration, replace this whole step with
+"Nothing to configure." and delete .env.example.
+-->
+
+| Variable | Required | Secret | How to get it |
+| --- | --- | --- | --- |
+| `<VARIABLE>` | yes | no | Default works locally |
+| `<SECRET>` | yes | yes | Generate: `openssl rand -base64 32` |
+| `<API_KEY>` | no | yes | <Service> → <menu> → API keys |
+
+### 4. Run
+
+<!-- The exact commands, e.g. `./mvnw spring-boot:run` or `go run ./cmd/<name>`. -->
+
+```bash
+<run command>
+```
+
+<Where to see it working, e.g. "The API answers at http://localhost:8080".>
+
+## Documentation
+
+Internal documentation is written in Portuguese (pt-BR).
+
+- [Architecture](docs/architecture.md): overview, stack, dependencies and layers
+- [API](docs/api.md): Swagger UI and the list of endpoints
+- [Contexts and operations](docs/README.md#contextos): one spec per operation, with its flow
+- [Decisions](docs/decisions/README.md): why things are the way they are
+
+## Development
+
+System requirements, every command (build, tests, run), CI and the commit
+conventions are in [docs/development.md](docs/development.md).
